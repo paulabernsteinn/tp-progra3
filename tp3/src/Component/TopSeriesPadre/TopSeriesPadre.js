@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class NowSeriesPadre extends Component{
+class TopSeriesPadre extends Component{
       constructor(){
         super()
     }
@@ -91,4 +91,4 @@ class NowSeriesPadre extends Component{
  }
 }
 
-export default NowSeriesPadre
+export default TopSeriesPadre

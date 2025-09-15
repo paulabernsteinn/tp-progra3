@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Footer from "../../Component/Footer/Footer";
 import Header from "../../Component/Header/Header";
 import PopularesPadre from "../../Component/PopularesPadre/PopularesPadre";
-import NowPadre from "../../Component/NowPadre/NowPadre";
+import TopPadre from "../../Component/TopPadre/TopPadre";
 import PopularesSeriesPadre from "../../Component/PopularesSeriesPadre/PopularesSeriesPadre";
-import NowSeriesPadre from "../../Component/NowSeriesPadre/NowSeriesPadre";
+import TopSeriesPadre from "../../Component/TopSeriesPadre/TopSeriesPadre";
 
 
 class Home extends Component{
@@ -12,7 +12,8 @@ class Home extends Component{
     constructor(){
         super()
         this.state= {
-            peliculasPopulares: []
+            peliculasPopulares: [],
+            peliculasTop: []
         }
     }
 
@@ -29,13 +30,26 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
   .then(res => res.json())
   .then(res => {
     console.log(res)
-    let filtro = res.results.filter((peli, idx) => idx < 5)
+    let filtro = res.results.filter((peli, idx) => idx < 4)
     this.setState({
         peliculasPopulares: filtro
     })
 })
   .catch(err => console.error(err));
+    
+
+fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+    let filtroTop = res.results.filter((peli, idx) => idx < 4)
+    this.setState({
+        peliculasTop: filtroTop
+    })
+})
+  .catch(err => console.error(err));
     }
+
 
   render(){ return (
     <div className="container">
@@ -44,11 +58,11 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
      <h2 class="alert alert-primary">Popular movies this week</h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
       <h2 class="alert alert-primary">Movies now playing</h2>
-      <NowPadre/>
+      <TopPadre listaTop={this.state.peliculasTop}/>
        <h2 class="alert alert-warning">Popular TV shows this week</h2>
        <PopularesSeriesPadre/>
        <h2 class="alert alert-warning">TV shows airing today</h2>
-       <NowSeriesPadre/>
+       <TopSeriesPadre/>
       <Footer />
     </div>
   );}
