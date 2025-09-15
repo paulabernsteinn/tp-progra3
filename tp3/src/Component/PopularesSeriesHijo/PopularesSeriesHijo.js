@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class PopularesHijo extends Component{
+class PopularesSeriesHijo extends Component{
     constructor(){
         super()
     }
     render(){
         return(
-            <article class="single-card-tv">
-                <img src= {`https://image.tmdb.org/t/p/w500${this.props.data.poster_path}`} class="card-img-top"
+         <article class="single-card-tv">
+                <img src={`https://image.tmdb.org/t/p/w500${this.props.data.poster_path}`} class="card-img-top"
                     alt="..."/>
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
@@ -20,4 +20,4 @@ class PopularesHijo extends Component{
     }
 }
 
-export default PopularesHijo
+export default PopularesSeriesHijo

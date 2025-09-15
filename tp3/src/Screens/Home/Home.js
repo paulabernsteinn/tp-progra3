@@ -13,7 +13,9 @@ class Home extends Component{
         super()
         this.state= {
             peliculasPopulares: [],
-            peliculasTop: []
+            peliculasTop: [],
+            seriesPopulares: [],
+            seriesTop: []
         }
     }
 
@@ -48,21 +50,45 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     })
 })
   .catch(err => console.error(err));
-    }
+    
+
+fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+    let filtroSeriesPopulares = res.results.filter((peli, idx) => idx < 4)
+    this.setState({
+        seriesPopulares: filtroSeriesPopulares
+    })
+})
+  .catch(err => console.error(err));
+
+fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+    let filtroSeriesTop = res.results.filter((peli, idx) => idx < 4)
+    this.setState({
+        seriesTop: filtroSeriesTop
+    })
+})
+  .catch(err => console.error(err));
+
+}
 
 
   render(){ return (
     <div className="container">
         <h1>Udesa Movies</h1>
        <Header/>
-     <h2 class="alert alert-primary">Popular movies this week</h2>
+     <h2 class="alert alert-primary">Popular movies </h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
-      <h2 class="alert alert-primary">Movies now playing</h2>
+      <h2 class="alert alert-primary">Top Rated Movies</h2>
       <TopPadre listaTop={this.state.peliculasTop}/>
-       <h2 class="alert alert-warning">Popular TV shows this week</h2>
-       <PopularesSeriesPadre/>
-       <h2 class="alert alert-warning">TV shows airing today</h2>
-       <TopSeriesPadre/>
+       <h2 class="alert alert-warning">Popular TV shows </h2>
+       <PopularesSeriesPadre listaSeries={this.state.seriesPopulares}/>
+       <h2 class="alert alert-warning">Top Rated TV shows </h2>
+       <TopSeriesPadre listaSeriesTop={this.state.seriesTop} />
       <Footer />
     </div>
   );}
