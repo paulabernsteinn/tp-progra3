@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class PopularesHijo extends Component{
     constructor(){
@@ -12,7 +13,7 @@ class PopularesHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <a href="serie.html" class="btn btn-primary">Ver más</a>
+                    <Link className="btn btn-primary" to ={"/peliculas"}>Ver Mas</Link>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
             </article>
