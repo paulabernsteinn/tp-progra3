@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class PeliculasHijo extends Component{
-    constructor(){
-        super()
+class TodasTopHijo extends Component{
+    constructor(props){
+        super(props)
          this.state={
             verMas: false,
         textoBoton: "Ver Mas" 
         }
-         }
+    }
 
   switch(){
     if (this.state.verMas == false){
@@ -26,10 +26,8 @@ class PeliculasHijo extends Component{
    textoBoton: "Ver Mas"
   
   }); 
-}
-    
-    }
-    
+}}
+
     render(){
         return(
             <article class="single-card-movie">
@@ -38,12 +36,16 @@ class PeliculasHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     
-                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
+                    <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
                     <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
+                        
+                  
+                   
+
                 </div>
             </article>
         )
     }
 }
 
-export default PeliculasHijo
+export default TodasTopHijo

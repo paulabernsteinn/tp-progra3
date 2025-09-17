@@ -4,6 +4,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class PopularesHijo extends Component{
     constructor(){
         super()
+
     }
     render(){
         return(
@@ -13,7 +14,7 @@ class PopularesHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <Link className="btn btn-primary" to ={"/peliculas"}>Ver Mas</Link>
+                    <Link className="btn btn-primary" to ={"/peliculaspopulares"}>Ver Mas</Link>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
             </article>

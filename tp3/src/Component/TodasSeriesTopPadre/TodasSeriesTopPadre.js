@@ -1,0 +1,18 @@
+import React, { Component } from "react";
+
+import TodasSeriesTopHijo from "../TodasSeriesTopHijo/TodasSeriesTopHijo";
+
+class TodasSeriesTopPadre extends Component{
+      constructor(props){
+        super(props)
+    }
+ render(){
+    return(<section class="row cards" id="movies">
+            {this.props.seriesTop.map(peli => {
+                return <TodasSeriesTopHijo key={peli.id} data={peli} />
+            })}
+        </section>)
+ }
+}
+
+export default TodasSeriesTopPadre

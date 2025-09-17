@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
-import SeriesPadre from "../../Component/SeriesPadre/SeriesPadre";
+import TodasSeriesTopPadre from "../../Component/TodasSeriesTopPadre/TodasSeriesTopPadre";
 
 class Series extends Component{
     constructor(){
         super()
         this.state={
-            series: []
+            seriesTop: []
         }
     }
     componentDidMount(){
@@ -20,13 +20,13 @@ class Series extends Component{
   }
 };
 
-fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
+fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)
   .then(res => res.json())
   .then(res => {
     console.log(res)
     
     this.setState({
-        series: res.results
+        seriesTop: res.results
     })
 })
   .catch(err => console.error(err));
@@ -38,8 +38,8 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
                 <h1>Udesa Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
-             <h2 class="alert alert-primary">Todas las Series Populares</h2>
-             <SeriesPadre series={this.state.series}/>
+             <h2 class="alert alert-primary">Todas las Series Top Rated</h2>
+             <TodasSeriesTopPadre seriesTop={this.state.seriesTop}/>
              </section>
 
               <Footer />

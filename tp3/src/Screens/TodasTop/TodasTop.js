@@ -2,15 +2,19 @@ import React, { Component } from "react";
 
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
-import SeriesPadre from "../../Component/SeriesPadre/SeriesPadre";
+import TodasTopPadre from "../../Component/TodasTopPadre/TodasTopPadre";
 
-class Series extends Component{
+class Peliculas extends Component{
     constructor(){
         super()
         this.state={
-            series: []
+            peliculasTop: [],
+            verMas: false,
+        textoBoton: "Ver Mas" 
         }
     }
+
+    
     componentDidMount(){
         const options = {
   method: 'GET',
@@ -20,17 +24,19 @@ class Series extends Component{
   }
 };
 
-fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
+  fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
   .then(res => res.json())
   .then(res => {
     console.log(res)
     
     this.setState({
-        series: res.results
+        peliculasTop: res.results
     })
 })
   .catch(err => console.error(err));
-    }
+}
+
+
 
     render(){
         return(
@@ -38,8 +44,9 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
                 <h1>Udesa Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
-             <h2 class="alert alert-primary">Todas las Series Populares</h2>
-             <SeriesPadre series={this.state.series}/>
+             <h2 class="alert alert-primary">Todas las películas Top Rated</h2>
+             <TodasTopPadre  peliculasTop={this.state.peliculasTop} />
+            
              </section>
 
               <Footer />
@@ -49,4 +56,4 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
 
 }
 
-export default Series
+export default Peliculas

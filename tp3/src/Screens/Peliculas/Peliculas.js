@@ -7,7 +7,8 @@ class Peliculas extends Component{
     constructor(){
         super()
         this.state={
-            peliculas: []
+            peliculas: [],
+            
         }
     }
     componentDidMount(){
@@ -29,7 +30,9 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
     })
 })
   .catch(err => console.error(err));
-    }
+  
+
+}
 
     render(){
         return(
@@ -37,8 +40,8 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
                 <h1>Udesa Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
-             <h2 class="alert alert-primary">Todas las películas</h2>
-             <PeliculasPadre peliculas={this.state.peliculas}/>
+             <h2 class="alert alert-primary">Todas las películas Populares</h2>
+             <PeliculasPadre peliculas={this.state.peliculas} />
              </section>
 
               <Footer />

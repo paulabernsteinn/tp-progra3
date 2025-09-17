@@ -13,7 +13,7 @@ class TopSeriesHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                     <Link className="btn btn-primary" to ={"/series"}>Ver Mas</Link>
+                     <Link className="btn btn-primary" to ={"/seriestop"}>Ver Mas</Link>
                     <a href="serie.html" class="btn alert-primary">🩶</a>
                 </div>
             </article>

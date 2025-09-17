@@ -14,10 +14,16 @@ class Header extends Component{
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/peliculas">Películas</a>
+                    <a class="nav-link" href="/peliculaspopulares">Películas Populares</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/series">Series</a>
+                    <a class="nav-link" href="/peliculastop">Películas Top Rated</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/seriespopulares">Series Populares</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/seriestop">Series Top Rated</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/favoritos">Favoritas</a>
