@@ -23,8 +23,7 @@ function App() {
     <Route path="/seriespopulares" exact={true} component={Series}/>
      <Route path="/seriestop" exact={true} component={SeriesTop}/>
     <Route path="/favoritos" exact={true} component={Peliculas}/>
-    <Route path="/peliculas/id/:id" exact={true} component={DetallePelicula}/>
- 
+    <Route path="/peliculas/id/:id" component={DetallePelicula}/> 
     
     </Switch>
     

@@ -8,7 +8,6 @@ import TopSeriesPadre from "../../Component/TopSeriesPadre/TopSeriesPadre";
 
 
 class Home extends Component{
-
     constructor(){
         super()
         this.state= {
