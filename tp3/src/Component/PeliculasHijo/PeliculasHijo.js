@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class PeliculasHijo extends Component{
     constructor(){
         super()
@@ -41,6 +41,7 @@ class PeliculasHijo extends Component{
                      <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
                     <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                 </div>
+                <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
             </article>
         )
     }

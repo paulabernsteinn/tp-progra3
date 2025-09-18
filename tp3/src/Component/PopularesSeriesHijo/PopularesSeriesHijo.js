@@ -18,6 +18,8 @@ class PopularesSeriesHijo extends Component{
                     <Link className="btn btn-primary" to ={"/seriespopulares"}>Ver Mas</Link>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
+                <Link className=""to ={`/seriesr/id/${this.props.data.id}`}>Detalle</Link>
+
             </article>
         )
     }

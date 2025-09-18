@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 class TodasTopHijo extends Component{
     constructor(props){
@@ -38,11 +40,12 @@ class TodasTopHijo extends Component{
                     
                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
                     <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
-                        
-                  
+
+                    <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
                    
 
                 </div>
+                
             </article>
         )
     }

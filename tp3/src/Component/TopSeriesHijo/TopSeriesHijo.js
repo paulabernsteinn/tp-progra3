@@ -16,6 +16,7 @@ class TopSeriesHijo extends Component{
                      <Link className="btn btn-primary" to ={"/seriestop"}>Ver Mas</Link>
                     <a href="serie.html" class="btn alert-primary">🩶</a>
                 </div>
+                <Link className=""to ={`/series/id/${this.props.data.id}`}>Detalle</Link>
             </article>
         )
     }
