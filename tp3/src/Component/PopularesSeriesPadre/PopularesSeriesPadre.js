@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import PopularesHijo from "../PopularesHijo/PopularesHijo";
+import PopularesSeriesHijo from "../PopularesSeriesHijo/PopularesSeriesHijo";
+
 
 class PopularesSeriesPadre extends Component{
       constructor(){
@@ -8,7 +9,7 @@ class PopularesSeriesPadre extends Component{
  render(){
     return(    <section class="row cards" id="tv-show">
             {this.props.listaSeries.map(peli => {
-                return <PopularesHijo data={peli} />
+                return <PopularesSeriesHijo data={peli} />
             })}
         </section>)
  }
