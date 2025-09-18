@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class PeliculasHijo extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
          this.state={
+            valor: props.value,
             verMas: false,
-        textoBoton: "Ver Mas" 
+        textoBoton: "Ver Mas",
+        favoritos: false
         }
          }
 
@@ -29,6 +32,49 @@ class PeliculasHijo extends Component{
 }
     
     }
+    componentDidMount (){
+        let recuperarfavs = localStorage.getItem('favoritos');
+        if (recuperarfavs !== null) {
+          let parseoFavs = JSON.parse(recuperarfavs);
+          let filtrados = parseoFavs.filter(id => id == this.props.data.id);
+          if (filtrados.length > 0) {
+            this.setState({ favoritos: true });
+          }
+        }
+      }
+      
+      agregarFavoritos(){
+        let recuperarfavs = localStorage.getItem('favoritos');
+        if (recuperarfavs === null){
+          let arrayFavs= []
+          arrayFavs.push(this.props.data.id)
+          let arrayToString = JSON.stringify(arrayFavs)
+          localStorage.setItem('favoritos', arrayToString)
+        }
+        else{
+          let parseoFavs = JSON.parse(recuperarfavs)
+          parseoFavs.push(this.props.data.id)
+          let arrayToString = JSON.stringify(parseoFavs)
+          localStorage.setItem('favoritos', arrayToString)
+        }
+        this.setState({
+          favoritos: true
+        })
+        
+      }
+      
+      quitarDeFavoritos(){
+        let recuperarfavs = localStorage.getItem('favoritos');
+        let parseoFavs = JSON.parse(recuperarfavs)
+        let filtrados = parseoFavs.filter(id => id != this.props.data.id)
+        let arrayToString = JSON.stringify(filtrados)
+        localStorage.setItem('favoritos', arrayToString)
+      
+          this.setState({
+          favoritos: false
+        })
+      
+      }
     
     render(){
         return(
@@ -42,6 +88,10 @@ class PeliculasHijo extends Component{
                     <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                 </div>
                 <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
+                <div className="more"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></div>
+                {this.state.favoritos ? <button onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
+
+                
             </article>
         )
     }
