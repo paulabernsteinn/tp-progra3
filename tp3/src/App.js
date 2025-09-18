@@ -6,6 +6,7 @@ import Peliculas from "./Screens/Peliculas/Peliculas";
 import Series from "./Screens/Series/Series";
 import TodasTop from "./Screens/TodasTop/TodasTop";
 import SeriesTop from "./Screens/SeriesTop/SeriesTop";
+import DetallePelicula from "./Screens/DetallePelicula/DetallePelicula";
 
 
 
@@ -22,6 +23,7 @@ function App() {
     <Route path="/seriespopulares" exact={true} component={Series}/>
      <Route path="/seriestop" exact={true} component={SeriesTop}/>
     <Route path="/favoritos" exact={true} component={Peliculas}/>
+    <Route path="/peliculas/id/:id" exact={true} component={DetallePelicula}/>
  
     
     </Switch>
