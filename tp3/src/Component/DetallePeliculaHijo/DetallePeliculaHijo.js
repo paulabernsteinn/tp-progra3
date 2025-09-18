@@ -9,7 +9,7 @@ class DetallePeliculaHijo extends Component{
     render(){
         return(
         <section class="row">
-            <img class="col-md-6" src={this.props.PeliculaDetalle.poster_path} alt=""/>
+            <img class="col-md-6" src={`https://image.tmdb.org/t/p/w500${this.props.PeliculaDetalle.poster_path}`}  alt=""/>
             <h2 class="alert alert-primary">{this.props.PeliculaDetalle.title}</h2>
             <section class="col-md-6 info">
                 <h3>Descripción</h3>
