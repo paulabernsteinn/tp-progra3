@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Header from "../../Component/Header/Header";
-import Footer from "../../Component/Footer/Footer";
-import DetallePelicula from "../../Component/DetallePelicula/DetallePelicula";
-import DetallePeliculaHijo from "../../Component/DetallePeliculaHijo/DetallePeliculaHijo";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import TopHijo from "../../Component/TopHijo/TopHijo";
 
 class Favoritos extends Component{
 
@@ -45,7 +42,7 @@ class Favoritos extends Component{
 render(){
     console.log(this.state.lista); 
     return (
-        <div></div>
+    <div></div>
       );
     }
   }
