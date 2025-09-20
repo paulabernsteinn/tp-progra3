@@ -8,7 +8,7 @@ class PeliculasPadre extends Component{
     }
  render(){
     return(<section class="row cards" id="movies">
-            {this.props.peliculas.map(peli => {
+             {this.props.peliculas === "" ? <h3>Cargando...</h3> : this.props.peliculas.map(peli => {
                 return <PeliculasHijo key={peli.id} data={peli} />
             })}
         </section>)

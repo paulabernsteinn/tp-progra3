@@ -7,7 +7,7 @@ class TopPadre extends Component{
     }
  render(){
     return( <section class="row cards" id="now-playing">
-           {this.props.listaTop.map(peli => {
+           { this.props.listaTop === "" ? <h3>Cargando...</h3> : this.props.listaTop.map(peli => {
                 return <TopHijo data={peli} />
             })}
         </section>)

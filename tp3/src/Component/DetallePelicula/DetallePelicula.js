@@ -11,7 +11,7 @@ render() {
 
     return (
       <div className="detalle-pelicula">
-       {this.props.peliculas.map(peli => {
+        {this.props.peliculas === "" ? <h3>Cargando...</h3> : this.props.peliculas.map(peli => {
                 return <DetallePeliculaHijo key={peli.id} data={peli} />
             })}
       </div>
