@@ -15,7 +15,7 @@ class PopularesSeriesHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     <p class="card-text">{this.props.data.overview}</p>
-                    <Link className="btn btn-primary" to ={"/seriespopulares"}>Ver Mas</Link>
+                    <Link className="btn btn-primary" to ={"/seriespopulares"}>Ver Todas</Link>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
                 <Link className=""to ={`/seriesr/id/${this.props.data.id}`}>Detalle</Link>

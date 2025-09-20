@@ -88,7 +88,7 @@ class PeliculasHijo extends Component{
                     <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                 </div>
                 <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
-                <div className="more"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></div>
+                
                 {this.state.favoritos ? <button onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
 
                 
