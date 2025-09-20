@@ -8,7 +8,9 @@ class Peliculas extends Component{
         super()
         this.state={
             peliculas: [],
-            cargarMas: "Cargar Mas"
+            cargarMas: "Cargar Mas",
+            valor: "",
+            peliculasFiltro: []
             
         }
     }
@@ -35,18 +37,24 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
 
   
 }
+filtrarPeliculas(valor){
+          return this.state.peliculasFiltro.filter(pelicula => pelicula.toLowerCase().includes(valor.toLowerCase()) );
+        }
 
     
 
 
     render(){
+       const peliculasFiltradas = this.filtrarPeliculas(this.state.valor);
         return(
+
+          
              <div className="container">
                 <h1>Udesa Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las películas Populares</h2>
-             <PeliculasPadre peliculas={this.state.peliculas} />
+             <PeliculasPadre peliculas={this.state.peliculas} peliculasFiltradas = {peliculasFiltradas}/>
              </section>
 
               <Footer />

@@ -25,7 +25,7 @@ class TodasTopHijo extends Component{
       this.setState({
    
     verMas: false,
-   textoBoton: "Ver Mas"
+   textoBoton: "Ver Descripcion"
   
   }); 
 }}

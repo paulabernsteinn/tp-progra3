@@ -7,7 +7,7 @@ class PeliculasHijo extends Component{
          this.state={
             valor: props.value,
             verMas: false,
-        textoBoton: "Ver Mas",
+        textoBoton: "Ver Descrpicion",
         favoritos: false
         }
          }
