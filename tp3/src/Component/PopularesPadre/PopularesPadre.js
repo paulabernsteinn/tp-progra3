@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PopularesHijo from "../PopularesHijo/PopularesHijo";
+import Peliculas from "../../Screens/Peliculas/Peliculas";
 
 class PopularesPadre extends Component{
       constructor(props){
@@ -10,6 +11,7 @@ class PopularesPadre extends Component{
             {this.props.lista.map(peli => {
                 return <PopularesHijo data={peli} />
             })}
+           
         </section>)
  }
 }

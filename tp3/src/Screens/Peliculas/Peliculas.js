@@ -8,6 +8,7 @@ class Peliculas extends Component{
         super()
         this.state={
             peliculas: [],
+            cargarMas: "Cargar Mas"
             
         }
     }
@@ -32,7 +33,11 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
   .catch(err => console.error(err));
   
 
+  
 }
+
+    
+
 
     render(){
         return(
