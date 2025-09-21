@@ -5,6 +5,7 @@ import PopularesPadre from "../../Component/PopularesPadre/PopularesPadre";
 import TopPadre from "../../Component/TopPadre/TopPadre";
 import PopularesSeriesPadre from "../../Component/PopularesSeriesPadre/PopularesSeriesPadre";
 import TopSeriesPadre from "../../Component/TopSeriesPadre/TopSeriesPadre";
+import { Link } from "react-router-dom";
 
 
 class Home extends Component{
@@ -82,12 +83,19 @@ fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options
        <Header/>
      <h2 class="alert alert-primary">Popular movies </h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
+      <Link to="/peliculaspopulares">Ver todas</Link>
+
       <h2 class="alert alert-primary">Top Rated Movies</h2>
       <TopPadre listaTop={this.state.peliculasTop}/>
+      <Link to="/peliculastop">Ver todas</Link>
+      
        <h2 class="alert alert-warning">Popular TV shows </h2>
        <PopularesSeriesPadre listaSeries={this.state.seriesPopulares}/>
+        <Link to="/seriespopulares">Ver todas</Link>
+       
        <h2 class="alert alert-warning">Top Rated TV shows </h2>
        <TopSeriesPadre listaSeriesTop={this.state.seriesTop} />
+        <Link to="/seriestop">Ver todas</Link>
       <Footer />
     </div>
   );}
