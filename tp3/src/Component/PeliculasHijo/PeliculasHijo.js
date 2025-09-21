@@ -89,6 +89,7 @@ class PeliculasHijo extends Component{
                 </div>
                 <Link className="" to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
                 {this.state.favoritos ? <button className="btn btn-primary" onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button className="btn btn-primary" onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
+                {/* {this.state.favoritos ? <a href="" class="btn alert-primary" onClick={() => this.quitarDeFavoritos()} >💔</a> : <a href="" class="btn alert-primary" onClick={() => this.agregarFavoritos()} >♥️</a>} */}
 
             </article>
         )
