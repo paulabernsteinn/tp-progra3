@@ -15,11 +15,11 @@ class Peliculas extends Component{
         }
     }
     componentDidMount(){
-        const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNGFkNTljMGNjMDA5MGE3MDFiZmFjYjg5M2Y2MmE4MyIsIm5iZiI6MTc1NzQ0OTc3Ny41NTksInN1YiI6IjY4YzA4ZTMxYmRiOGY3MzY2MjliZDNjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AE7116u_74D_hCFnsAHtj8OeB6PtVVgIVIU8VhMf_do'
+      const options = {
+        method: 'GET',
+        headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNGFkNTljMGNjMDA5MGE3MDFiZmFjYjg5M2Y2MmE4MyIsIm5iZiI6MTc1NzQ0OTc3Ny41NTksInN1YiI6IjY4YzA4ZTMxYmRiOGY3MzY2MjliZDNjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AE7116u_74D_hCFnsAHtj8OeB6PtVVgIVIU8VhMf_do'
   }
 };
 
@@ -35,13 +35,10 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
   .catch(err => console.error(err));
   
 
-  
 }
-filtrarPeliculas(valor){
-          return this.state.peliculasFiltro.filter(pelicula => pelicula.toLowerCase().includes(valor.toLowerCase()) );
-        }
-
-    
+  filtrarPeliculas(valor){
+      return this.state.peliculasFiltro.filter(pelicula => pelicula.toLowerCase().includes(valor.toLowerCase()) );
+      }
 
 
     render(){

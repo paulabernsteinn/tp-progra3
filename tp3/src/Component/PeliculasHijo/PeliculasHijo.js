@@ -7,7 +7,7 @@ class PeliculasHijo extends Component{
          this.state={
             valor: props.value,
             verMas: false,
-        textoBoton: "Ver Descrpicion",
+        textoBoton: "Ver descripción",
         favoritos: false
         }
          }
@@ -26,7 +26,7 @@ class PeliculasHijo extends Component{
       this.setState({
    
     verMas: false,
-   textoBoton: "Ver Mas"
+   textoBoton: "Ver descripción"
   
   }); 
 }
@@ -84,14 +84,12 @@ class PeliculasHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     
-                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
-                    <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
+                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripción: {this.props.data.overview}</p></div>) : ""}</p>
+                    <p><button className="btn btn-primary" onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                 </div>
-                <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
-                
-                {this.state.favoritos ? <button onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
+                <Link className="" to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
+                {this.state.favoritos ? <button className="btn btn-primary" onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button className="btn btn-primary" onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
 
-                
             </article>
         )
     }

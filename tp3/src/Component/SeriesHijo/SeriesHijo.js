@@ -6,7 +6,7 @@ class SeriesHijo extends Component{
         super() 
         this.state={
             verMas: false,
-        textoBoton: "Ver Mas" 
+        textoBoton: "Ver descripción" 
         }
          }
 
@@ -24,7 +24,7 @@ class SeriesHijo extends Component{
       this.setState({
    
     verMas: false,
-   textoBoton: "Ver Descripcion"
+   textoBoton: "Ver descripción"
   
   }); 
 }
@@ -37,8 +37,8 @@ class SeriesHijo extends Component{
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
                     
-                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripcion: {this.props.data.overview}</p></div>) : ""}</p>
-                    <p className="btn btn-primary"><button onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
+                     <p className="card-text">{this.state.verMas ? (<div> <p>Descripción: {this.props.data.overview}</p></div>) : ""}</p>
+                    <p><button className="btn btn-primary" onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                 </div>
                 <Link className=""to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
             </article>

@@ -83,19 +83,19 @@ fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options
        <Header/>
      <h2 class="alert alert-primary">Popular movies </h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
-      <Link to="/peliculaspopulares">Ver todas</Link>
+      <Link to="/peliculaspopulares" className="btn btn-primary">Ver todas</Link>
 
       <h2 class="alert alert-primary">Top Rated Movies</h2>
       <TopPadre listaTop={this.state.peliculasTop}/>
-      <Link to="/peliculastop">Ver todas</Link>
+      <Link to="/peliculastop" className="btn btn-primary">Ver todas</Link>
       
        <h2 class="alert alert-warning">Popular TV shows </h2>
        <PopularesSeriesPadre listaSeries={this.state.seriesPopulares}/>
-        <Link to="/seriespopulares">Ver todas</Link>
+        <Link to="/seriespopulares" className="btn btn-primary">Ver todas</Link>
        
        <h2 class="alert alert-warning">Top Rated TV shows </h2>
        <TopSeriesPadre listaSeriesTop={this.state.seriesTop} />
-        <Link to="/seriestop">Ver todas</Link>
+        <Link to="/seriestop" className="btn btn-primary">Ver todas</Link>
       <Footer />
     </div>
   );}
