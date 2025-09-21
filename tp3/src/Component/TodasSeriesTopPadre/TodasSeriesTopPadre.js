@@ -18,16 +18,20 @@ controlarCambios(event) {
     this.setState({valor: event.target.value});
   }
  render(){
-    return(<section class="row cards" id="movies">
-        <form onSubmit={(event)=>this.evitarSubmit(event)}>
-       <label>Name: </label>
-       <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-       <input type="submit" value="Submit" />
-     </form>
+    return(
+    <div>
+        <form className="search" onSubmit={(event)=>this.evitarSubmit(event)}>
+          <input type="text" className="search-input" placeholder="Buscar series top rated..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+          <button type="submit" className="search-button">Buscar</button>
+        </form>
+
+        <section class="row cards" id="movies">
              {this.props.seriesTop === "" ? <h3>Cargando...</h3> : this.props.seriesTop.map(peli => {
                 return <TodasSeriesTopHijo key={peli.id} data={peli} />
             })}
-        </section>)
+        </section>
+      </div>
+    )
  }
 }
 

@@ -44,8 +44,6 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
     render(){
        const peliculasFiltradas = this.filtrarPeliculas(this.state.valor);
         return(
-
-          
              <div className="container">
                 <h1>Udesa Movies</h1>
        <Header/>

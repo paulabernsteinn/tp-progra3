@@ -17,19 +17,24 @@ controlarCambios(event) {
     this.setState({valor: event.target.value});
   }
  render(){
-    return(<section class="row cards" id="movies">
-    <form onSubmit={(event)=>this.evitarSubmit(event)}>
-       <label>Name: </label>
-       <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-       <input type="submit" value="Submit" />
-     </form>
+    return(
+      <div>
+        <form className="search" onSubmit={(event)=>this.evitarSubmit(event)}>
+          <input type="text" className="search-input" placeholder="Buscar películas populares..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+          <button type="submit" className="search-button">Buscar</button>
+        </form>
+    <section class="row cards" id="movies">
+      
         {this.props.peliculasFiltradas === "" ? <h3>Cargando...</h3> : <h3 className="character-card">
         {this.props.peliculasFiltradas.map((item)=> <PeliculasHijo key={item.id} info={item}  />)}</h3>}
              
         {this.props.peliculas === "" ? <h3>Cargando...</h3> : this.props.peliculas.map(peli => {
                 return <PeliculasHijo key={peli.id} data={peli} />
             })}
-        </section>)
+      </section>
+      </div>
+
+      )
  }
 }
 

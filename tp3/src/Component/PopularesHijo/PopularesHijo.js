@@ -8,6 +8,7 @@ class PopularesHijo extends Component{
     }
     render(){
         return(
+            
             <article class="single-card-tv">
                 <img src= {`https://image.tmdb.org/t/p/w500${this.props.data.poster_path}`} class="card-img-top"
                     alt="..."/>
