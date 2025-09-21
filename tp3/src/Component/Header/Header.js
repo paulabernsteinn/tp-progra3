@@ -29,7 +29,6 @@ class Header extends Component{
                     <a class="nav-link" href="/favoritos">Favoritas</a>
                 </li>
             </ul>
-            <Buscador/>
         </nav>
         )
     }

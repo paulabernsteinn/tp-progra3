@@ -6,6 +6,7 @@ import TopPadre from "../../Component/TopPadre/TopPadre";
 import PopularesSeriesPadre from "../../Component/PopularesSeriesPadre/PopularesSeriesPadre";
 import TopSeriesPadre from "../../Component/TopSeriesPadre/TopSeriesPadre";
 import { Link } from "react-router-dom";
+import Buscador from "../../Component/Buscador/Buscador";
 
 
 class Home extends Component{
@@ -81,10 +82,7 @@ fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options
     <div className="container">
         <h1>UdeSA Movies</h1>
        <Header/>
-        <form className="search" onSubmit={(event)=>this.evitarSubmit(event)}>
-          <input type="text" className="search-input" placeholder="Buscar..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-          <button type="submit" className="search-button">Buscar</button>
-        </form>
+        <Buscador/>
     
      <h2 class="alert alert-primary">Popular movies </h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
