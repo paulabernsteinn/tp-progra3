@@ -7,8 +7,10 @@ class PeliculasHijo extends Component{
          this.state={
             valor: props.value,
             verMas: false,
-        textoBoton: "Ver descripción",
-        favoritos: false
+            textoBoton: "Ver descripción",
+            favoritos: false,
+            data: [],
+            nextPage: "",
         }
          }
 
@@ -75,6 +77,27 @@ class PeliculasHijo extends Component{
         })
       
       }
+
+//   componentDidMount (){
+    //   fetch("")
+    // 	.then( response => response.json() )
+    // 	.then( data => this.setState({
+    //     data: data.results,
+    //     nextPage: data.info.next
+    //   }) )
+    // 	.catch( error =>	console.log('El error fue: ' + error))
+
+// }
+// masPeliculas(){
+//   fetch(this.state.nextPage)
+//   .then (response => response.json())
+// .then( data => this.setState({
+//     data: this.state.data.concat(data.results),
+//     nextPage: data.info.next
+//   }) )
+// 	.catch( error =>	console.log('El error fue: ' + error))
+    
+// }
     
     render(){
         return(
@@ -90,8 +113,9 @@ class PeliculasHijo extends Component{
                 <Link className="" to ={`/peliculas/id/${this.props.data.id}`}>Detalle</Link>
                 {this.state.favoritos ? <button className="btn btn-primary" onClick={() => this.quitarDeFavoritos()} >Quitar de favoritos</button> : <button className="btn btn-primary" onClick={() => this.agregarFavoritos()} >Agregar a favoritos</button>}
                 {/* {this.state.favoritos ? <a href="" class="btn alert-primary" onClick={() => this.quitarDeFavoritos()} >💔</a> : <a href="" class="btn alert-primary" onClick={() => this.agregarFavoritos()} >♥️</a>} */}
-
             </article>
+            // <button onClick={() => this.masPeliculas() }>{this.state.boton}</button>
+
         )
     }
 }

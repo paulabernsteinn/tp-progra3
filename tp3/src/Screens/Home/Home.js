@@ -79,8 +79,13 @@ fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options
 
   render(){ return (
     <div className="container">
-        <h1>Udesa Movies</h1>
+        <h1>UdeSA Movies</h1>
        <Header/>
+        <form className="search" onSubmit={(event)=>this.evitarSubmit(event)}>
+          <input type="text" className="search-input" placeholder="Buscar..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+          <button type="submit" className="search-button">Buscar</button>
+        </form>
+    
      <h2 class="alert alert-primary">Popular movies </h2>
      <PopularesPadre lista={this.state.peliculasPopulares} />
       <Link to="/peliculaspopulares" className="btn btn-primary">Ver todas</Link>

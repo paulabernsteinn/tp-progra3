@@ -18,6 +18,7 @@ class DetallePeliculaHijo extends Component{
                 <p class="mt-0 mb-0 length"><strong>Duración:</strong>{this.props.PeliculaDetalle.runtime}</p>
                 <p class="description"><strong>Sinopsis:</strong> {this.props.PeliculaDetalle.overview}</p>
                 <p class="mt-0" id="votes"><strong>Genero:</strong> {this.props.PeliculaDetalle.genre}</p>
+                <a href="" class="btn alert-primary">♥️</a>
             </section>
         </section>
         )

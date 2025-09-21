@@ -41,7 +41,7 @@ class Peliculas extends Component{
     render(){
         return(
              <div className="container">
-                <h1>Udesa Movies</h1>
+                <h1>UdeSA Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las películas Top Rated</h2>

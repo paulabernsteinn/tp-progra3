@@ -35,7 +35,7 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
     render(){
         return(
              <div className="container">
-                <h1>Udesa Movies</h1>
+                <h1>UdeSA Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las Series Populares</h2>

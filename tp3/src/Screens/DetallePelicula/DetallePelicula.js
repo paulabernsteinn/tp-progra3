@@ -35,7 +35,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
     render(){
         return(
              <div className="container">
-                <h1>Udesa Movies</h1>
+                <h1>UdeSA Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Detalle de las películas Populares</h2>
