@@ -2,10 +2,34 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class PopularesSeriesHijo extends Component{
-    constructor(){
-        super()
-
+    constructor(props){
+        super(props)
+        this.state={
+            valor: props.value,
+            verMas: false,
+        textoBoton: "Ver descripción",
+        favoritos: false
+        }
     }
+
+switch(){
+    if (this.state.verMas == false){
+     this.setState({
+   
+    verMas: true,
+   textoBoton: "Ver Menos"
+   
+  }); 
+
+} else {
+      this.setState({
+   
+    verMas: false,
+   textoBoton: "Ver descripción"
+  
+  }); 
+}
+ }
     
     render(){
         return(
@@ -14,8 +38,8 @@ class PopularesSeriesHijo extends Component{
                     alt="..."/>
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
-                    <p class="card-text">{this.props.data.overview}</p>
-                    <Link className="btn btn-primary" to ={"/seriespopulares"}>Ver descripción</Link>
+                    <p className="card-text">{this.state.verMas ? (<div> <p>{this.props.data.overview}</p></div>) : ""}</p>
+                    <p><button className="btn btn-primary" onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
                 <Link className=""to ={`/seriesr/id/${this.props.data.id}`}>Detalle</Link>
