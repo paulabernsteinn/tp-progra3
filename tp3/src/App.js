@@ -13,12 +13,12 @@ import NotFound from "./Screens/NotFound/NotFound";
 
 
 
+
 function App() {
   return (
     <React.Fragment>
     
     <Switch>
-    
     <Route path="/" exact={true} component={Home}/>
     <Route path="/peliculaspopulares" exact={true} component={Peliculas}/>
     <Route path="/peliculastop" exact={true} component={TodasTop}/>
