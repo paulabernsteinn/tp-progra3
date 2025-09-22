@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import TopHijo from "../../Component/TopHijo/TopHijo";
 import TopSeriesHijo from "../../Component/TopSeriesHijo/TopSeriesHijo";
+import Header from "../../Component/Header/Header";
+import Footer from "../../Component/Footer/Footer";
 
 
 class Favoritos extends Component{
@@ -58,21 +60,28 @@ parseoFavsSerie.map(favid => {
 render(){
     console.log(this.state.lista); 
     return (
-    <div>
+    <div className="container">
+      <h1>UdeSA Movies</h1>
+      <Header />
         <h1>Peliculas favoritas </h1>
-        <section className="more">
+        <section className="row cards all-movies">
             {this.state.movies.map(peli => (
               <TopHijo 
               data={peli}
               />
             ))}
-             <h1>Series favoritas </h1>
+             </section>
+
+  <h1>Series favoritas </h1>
+            <section className="row cards all-movies">
+            
               {this.state.series.map(serie => (
               <TopSeriesHijo 
               data={serie}
               />
             ))}
           </section>
+          <Footer />
     </div>
       );
     }
