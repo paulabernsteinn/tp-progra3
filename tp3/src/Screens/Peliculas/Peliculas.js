@@ -46,6 +46,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
         return(
              <div className="container">
                 <h1>UdeSA Movies</h1>
+                {/* <Filter filtrar={(id) => this.filtrarPeliculas(id)} /> */}
        <Header/>
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las películas Populares</h2>

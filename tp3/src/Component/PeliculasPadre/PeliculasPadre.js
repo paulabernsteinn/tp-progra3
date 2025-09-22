@@ -17,6 +17,8 @@ controlarCambios(event) {
     this.setState({valor: event.target.value});
   }
  render(){
+  console.log(this.state.valor);
+  
     return(
       <div>
         <form className="search-form" onSubmit={(event)=>this.evitarSubmit(event)}>
