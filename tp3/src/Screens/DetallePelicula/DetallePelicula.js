@@ -38,7 +38,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
                 <h1>UdeSA Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
-             <h2 class="alert alert-primary">Detalle de las películas Populares</h2>
+             <h2 class="alert alert-primary">Detalle de las películas</h2>
              <DetallePeliculaHijo PeliculaDetalle={this.state.PeliculaDetalle} />
              </section>
 

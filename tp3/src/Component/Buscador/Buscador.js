@@ -16,7 +16,6 @@ controlarCambios(event) {
   }
 
     render(){
-
         return(
               <form class="search-form" action="results.html" method="get" onSubmit={(event)=>this.evitarSubmit(event)}>
                 <input type="text" class="" name="searchData" placeholder="Buscar..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor}/>

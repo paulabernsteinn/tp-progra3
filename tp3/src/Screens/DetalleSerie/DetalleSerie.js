@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
+import DetalleSerieHijo from "../../Component/DetalleSerieHijo/DetalleSerieHijo";
 
 class DetalleSerie extends Component{
     constructor(props){
@@ -19,7 +20,7 @@ class DetalleSerie extends Component{
 };
   const id = this.props.match.params.id
 
-fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+fetch(`https://api.themoviedb.org/3/tv/${id}language=en-US`, options)
   .then(res => res.json())
   .then(res => {
     console.log(res)
@@ -36,7 +37,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
                 <h1>UdeSA Movies</h1>
        <Header/>
              <section class="row cards all-movies" id="movies">
-             <h2 class="alert alert-primary">Detalle de las películas Populares</h2>
+             <h2 class="alert alert-primary">Detalle de las series</h2>
              <DetalleSerieHijo SerieDetalle={this.state.SerieDetalle} />
              </section>
 

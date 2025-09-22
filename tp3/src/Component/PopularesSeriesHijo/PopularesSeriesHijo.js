@@ -85,7 +85,7 @@ switch(){
                     <p><button className="btn btn-primary" onClick={() => this.switch() }>{this.state.textoBoton}</button></p>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
-                <Link className=""to ={`/seriesr/id/${this.props.data.id}`}>Detalle</Link>
+                <Link className=""to ={`/series/id/${this.props.data.id}`}>Detalle</Link>
 
             </article>
         )
