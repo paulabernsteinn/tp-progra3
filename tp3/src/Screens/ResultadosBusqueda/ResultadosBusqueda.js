@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PeliculasPadre from "../../Component/PeliculasPadre/PeliculasPadre";
 import TodasTopPadre from "../../Component/TodasTopPadre/TodasTopPadre";
 import PeliculasHijo from "../../Component/PeliculasHijo/PeliculasHijo";
+import Header from "../../Component/Header/Header";
+import Footer from "../../Component/Footer/Footer";
 
 class ResultadosBusqueda extends Component{
 constructor(props) {
@@ -63,12 +65,19 @@ constructor(props) {
             <section className="row cards all-movies">
         {this.state.data === "" ? 
         <h3>Cargando...</h3> : 
-        <div>
-        <h1>Resultados de la busqueda</h1>
-        
-        <h3 className="alert alert-primary"> {this.state.data.map(peli => <PeliculasHijo data={peli}/> )} 
-        </h3>
+
+
+        <div className="container">
+            <h1>UdeSA Movies</h1>
+            <Header/>
+            <h2 class="alert alert-primary">Resultados de la busqueda</h2>
+
+                <section class="row cards all-movies" id="movies">
+                    {this.state.data.map(peli => <PeliculasHijo data={peli} /> )} 
+                </section>
+            <Footer/>
         </div>
+
         }
         </section>
         )
