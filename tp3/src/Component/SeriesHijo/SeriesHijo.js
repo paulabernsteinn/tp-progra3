@@ -32,7 +32,7 @@ class SeriesHijo extends Component{
     }
 
     componentDidMount (){
-        let recuperarfavs = localStorage.getItem('favoritos');
+        let recuperarfavs = localStorage.getItem('favoritosSerie');
         if (recuperarfavs !== null) {
           let parseoFavs = JSON.parse(recuperarfavs);
           let filtrados = parseoFavs.filter(id => id == this.props.data.id);
@@ -43,18 +43,18 @@ class SeriesHijo extends Component{
       }
       
       agregarFavoritos(){
-        let recuperarfavs = localStorage.getItem('favoritos');
+        let recuperarfavs = localStorage.getItem('favoritosSerie');
         if (recuperarfavs === null){
           let arrayFavs= []
           arrayFavs.push(this.props.data.id)
           let arrayToString = JSON.stringify(arrayFavs)
-          localStorage.setItem('favoritos', arrayToString)
+          localStorage.setItem('favoritosSerie', arrayToString)
         }
         else{
           let parseoFavs = JSON.parse(recuperarfavs)
           parseoFavs.push(this.props.data.id)
           let arrayToString = JSON.stringify(parseoFavs)
-          localStorage.setItem('favoritos', arrayToString)
+          localStorage.setItem('favoritosSerie', arrayToString)
         }
         this.setState({
           favoritos: true
@@ -63,11 +63,11 @@ class SeriesHijo extends Component{
       }
       
       quitarDeFavoritos(){
-        let recuperarfavs = localStorage.getItem('favoritos');
+        let recuperarfavs = localStorage.getItem('favoritosSerie');
         let parseoFavs = JSON.parse(recuperarfavs)
         let filtrados = parseoFavs.filter(id => id != this.props.data.id)
         let arrayToString = JSON.stringify(filtrados)
-        localStorage.setItem('favoritos', arrayToString)
+        localStorage.setItem('favoritosSerie', arrayToString)
       
           this.setState({
           favoritos: false

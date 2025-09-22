@@ -30,7 +30,7 @@ switch(){
   }); 
 }
  }    componentDidMount (){
-    let recuperarfavs = localStorage.getItem('favoritos');
+    let recuperarfavs = localStorage.getItem('favoritosPeli');
     if (recuperarfavs !== null) {
       let parseoFavs = JSON.parse(recuperarfavs);
       let filtrados = parseoFavs.filter(id => id == this.props.data.id);
@@ -41,18 +41,18 @@ switch(){
   }
   
   agregarFavoritos(){
-    let recuperarfavs = localStorage.getItem('favoritos');
+    let recuperarfavs = localStorage.getItem('favoritosPeli');
     if (recuperarfavs === null){
       let arrayFavs= []
       arrayFavs.push(this.props.data.id)
       let arrayToString = JSON.stringify(arrayFavs)
-      localStorage.setItem('favoritos', arrayToString)
+      localStorage.setItem('favoritosPeli', arrayToString)
     }
     else{
       let parseoFavs = JSON.parse(recuperarfavs)
       parseoFavs.push(this.props.data.id)
       let arrayToString = JSON.stringify(parseoFavs)
-      localStorage.setItem('favoritos', arrayToString)
+      localStorage.setItem('favoritosPeli', arrayToString)
     }
     this.setState({
       favoritos: true
@@ -61,11 +61,11 @@ switch(){
   }
   
   quitarDeFavoritos(){
-    let recuperarfavs = localStorage.getItem('favoritos');
+    let recuperarfavs = localStorage.getItem('favoritosPeli');
     let parseoFavs = JSON.parse(recuperarfavs)
     let filtrados = parseoFavs.filter(id => id != this.props.data.id)
     let arrayToString = JSON.stringify(filtrados)
-    localStorage.setItem('favoritos', arrayToString)
+    localStorage.setItem('favoritosPeli', arrayToString)
   
       this.setState({
       favoritos: false
