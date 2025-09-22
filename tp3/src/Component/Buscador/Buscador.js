@@ -28,4 +28,4 @@ controlarCambios(event) {
     }
 }
 
-export default Buscador
+export default withRouter(Buscador)

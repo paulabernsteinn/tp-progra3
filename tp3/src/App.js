@@ -29,10 +29,9 @@ function App() {
     <Route path="/favoritos" exact={true} component={Favoritos}/>
     <Route path="/peliculas/id/:id" component={DetallePelicula}/> 
     <Route path="/series/id/:id" component={DetalleSerie}/> 
-    <Route component={NotFound} />
     <Route path="/peliculas/search/:name" component={ResultadoBusqueda}/>
 
-    
+     <Route component={NotFound} />
     </Switch>
     
   </React.Fragment>
