@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodasTopHijo from "../TodasTopHijo/TodasTopHijo";
+import Filtrar from "../Filtrar/Filtrar";
 
 class TodasTopPadre extends Component{
       constructor(props){
@@ -9,20 +10,11 @@ class TodasTopPadre extends Component{
   }
     }
     
-    evitarSubmit(event) {
-    event.preventDefault();
-  }
-
-controlarCambios(event) {
-    this.setState({valor: event.target.value});
-  }
+ 
  render(){
     return(
     <div>
-        <form className="search-form" onSubmit={(event)=>this.evitarSubmit(event)}>
-          <input type="text" class="" name="searchData" placeholder="Buscar películas populares..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-          <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-        </form>
+          <Filtrar/>
         
         <section class="row cards" id="movies">
      

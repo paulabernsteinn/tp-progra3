@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
 import SeriesPadre from "../../Component/SeriesPadre/SeriesPadre";
+import Filtrar from "../../Component/Filtrar/Filtrar";
 
 class Series extends Component{
     constructor(){
         super()
         this.state={
-            series: []
+            series: [],
+            serieFiltro: [],
+            valor: "",
         }
     }
     componentDidMount(){
@@ -26,17 +29,26 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
     console.log(res)
     
     this.setState({
-        series: res.results
+        series: res.results,
+        serieFiltro: res.results
     })
 })
   .catch(err => console.error(err));
     }
 
+filtrarSerie(valor){
+      let nuevoArray = this.state.series.filter(serie => serie.title.toLowerCase().includes(valor.toLowerCase()) );
+      this.setState({
+        serieFiltro: nuevoArray
+      })
+      }
+
     render(){
         return(
              <div className="container">
                 <h1>UdeSA Movies</h1>
-       <Header/>
+            <Header/>
+            <Filtrar filtrar={(id) => this.filtrarSerie(id)} />
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las Series Populares</h2>
              <SeriesPadre series={this.state.series}/>

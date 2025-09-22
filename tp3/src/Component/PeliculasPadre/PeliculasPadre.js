@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import PeliculasHijo from "../PeliculasHijo/PeliculasHijo";
+import Filtrar from "../Filtrar/Filtrar";
 
 class PeliculasPadre extends Component{
       constructor(props){
@@ -9,30 +10,19 @@ class PeliculasPadre extends Component{
             valor: "",
   }
     }
- evitarSubmit(event) {
-    event.preventDefault();
-  }
 
-controlarCambios(event) {
-    this.setState({valor: event.target.value});
-  }
  render(){
   console.log(this.state.valor);
+  console.log(this.props.peliculas);
+  
   
     return(
       <div>
-        <form className="search-form" onSubmit={(event)=>this.evitarSubmit(event)}>
-          <input type="text" class="" name="searchData" placeholder="Buscar películas populares..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-          <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-        </form>
+      
     <section class="row cards" id="movies">
       
-        {this.props.peliculasFiltradas === "" ? <h3>Cargando...</h3> : <h3 className="character-card">
-        {this.props.peliculasFiltradas.map((item)=> <PeliculasHijo key={item.id} info={item}  />)}</h3>}
-             
-        {this.props.peliculas === "" ? <h3>Cargando...</h3> : this.props.peliculas.map(peli => {
-                return <PeliculasHijo key={peli.id} data={peli} />
-            })}
+        {this.props.peliculas.length === 0 ? <h3>Cargando...</h3> : 
+        this.props.peliculas.map((item)=> <PeliculasHijo key={item.id} data={item}  />)}
       </section>
       </div>
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PeliculasPadre from "../../Component/PeliculasPadre/PeliculasPadre";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
+import Filtrar from "../../Component/Filtrar/Filtrar";
 
 class Peliculas extends Component{
     constructor(){
@@ -29,7 +30,8 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
     console.log(res)
     
     this.setState({
-        peliculas: res.results
+        peliculas: res.results,
+        peliculasFiltro: res.results,
     })
 })
   .catch(err => console.error(err));
@@ -37,20 +39,24 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
 
 }
   filtrarPeliculas(valor){
-      return this.state.peliculasFiltro.filter(pelicula => pelicula.toLowerCase().includes(valor.toLowerCase()) );
+      let nuevoArray = this.state.peliculas.filter(pelicula => pelicula.title.toLowerCase().includes(valor.toLowerCase()) );
+      this.setState({
+        peliculasFiltro: nuevoArray
+      })
       }
 
 
     render(){
-       const peliculasFiltradas = this.filtrarPeliculas(this.state.valor);
+       
         return(
              <div className="container">
                 <h1>UdeSA Movies</h1>
-                {/* <Filter filtrar={(id) => this.filtrarPeliculas(id)} /> */}
+                
        <Header/>
+       <Filtrar filtrar={(id) => this.filtrarPeliculas(id)} />
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las películas Populares</h2>
-             <PeliculasPadre peliculas={this.state.peliculas} peliculasFiltradas = {peliculasFiltradas}/>
+             <PeliculasPadre peliculas={this.state.peliculasFiltro} />
              </section>
 
               <Footer />
