@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import TopHijo from "../../Component/TopHijo/TopHijo";
+import TopSeriesHijo from "../../Component/TopSeriesHijo/TopSeriesHijo";
+
 
 class Favoritos extends Component{
 
@@ -42,7 +44,16 @@ class Favoritos extends Component{
 render(){
     console.log(this.state.lista); 
     return (
-    <div></div>
+    <div>
+        <h1>Peliculas favoritas </h1>
+        <section className="more">
+            {this.state.lista.map(peliserie => (
+              <TopHijo 
+              data={peliserie}
+              />
+            ))}
+          </section>
+    </div>
       );
     }
   }
