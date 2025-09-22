@@ -5,11 +5,15 @@ class PeliculasHijo extends Component{
     constructor(props){
         super(props)
          this.state={
-            valor: props.value,
+           // valor: props.value,
+           valor: '',
             verMas: false,
             textoBoton: "Ver descripción",
-            favoritos: false,
+            boton: 'Cargar mas',
+            page: 1,
+            loading: true,
             data: [],
+            favoritos: false,
             nextPage: "",
         }
          }

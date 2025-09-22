@@ -8,10 +8,13 @@ class DetallePelicula extends Component {
   }
 
 render() {
-
+  console.log(this.props.peliculas);
+  
     return (
       <div className="detalle-pelicula">
         {this.props.peliculas === "" ? <h3>Cargando...</h3> : this.props.peliculas.map(peli => {
+            console.log(peli);
+            
                 return <DetallePeliculaHijo key={peli.id} data={peli} />
             })}
       </div>
