@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 
 class Buscador extends Component{
     constructor(props){
@@ -9,6 +11,7 @@ class Buscador extends Component{
     }
  evitarSubmit(event) {
     event.preventDefault();
+    this.props.history.push("/peliculas/search" + this.state.valor)
   }
 
 controlarCambios(event) {
@@ -19,7 +22,7 @@ controlarCambios(event) {
         return(
               <form class="search-form" action="results.html" method="get" onSubmit={(event)=>this.evitarSubmit(event)}>
                 <input type="text" class="" name="searchData" placeholder="Buscar..." onChange={(event)=>this.controlarCambios(event)} value={this.state.valor}/>
-                <button type="submit" class="btn btn-success btn-sm">Buscar</button>
+                <button type="submit" class="btn btn-success btn-sm">Buscar peliculas</button>
             </form>
         )
     }
