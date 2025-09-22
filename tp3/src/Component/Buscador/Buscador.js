@@ -11,7 +11,7 @@ class Buscador extends Component{
     }
  evitarSubmit(event) {
     event.preventDefault();
-    this.props.history.push("/peliculas/search" + this.state.valor)
+    this.props.history.push("/peliculas/search/" + this.state.valor)
   }
 
 controlarCambios(event) {
