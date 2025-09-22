@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
 import TodasTopPadre from "../../Component/TodasTopPadre/TodasTopPadre";
+import Filtrar from "../../Component/Filtrar/Filtrar";
 
 class Peliculas extends Component{
     constructor(){
@@ -10,7 +11,9 @@ class Peliculas extends Component{
         this.state={
             peliculasTop: [],
             verMas: false,
-        textoBoton: "Ver Mas" 
+            textoBoton: "Ver Mas",
+            valor: "",
+            peliculasFiltro: [] 
         }
     }
 
@@ -30,22 +33,29 @@ class Peliculas extends Component{
     console.log(res)
     
     this.setState({
-        peliculasTop: res.results
+        peliculasTop: res.results,
+        peliculasFiltro: res.results,
     })
 })
   .catch(err => console.error(err));
 }
 
-
+filtrarPeliculas(valor){
+      let nuevoArray = this.state.peliculasTop.filter(pelicula => pelicula.title.toLowerCase().includes(valor.toLowerCase()) );
+      this.setState({
+        peliculasFiltro: nuevoArray
+      })
+      }
 
     render(){
         return(
              <div className="container">
                 <h1>UdeSA Movies</h1>
        <Header/>
+              <Filtrar filtrar={(id) => this.filtrarPeliculas(id)} />
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las películas Top Rated</h2>
-             <TodasTopPadre  peliculasTop={this.state.peliculasTop} />
+             <TodasTopPadre  peliculasTop={this.state.peliculasFiltro} />
             
              </section>
 

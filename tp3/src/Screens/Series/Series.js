@@ -37,7 +37,7 @@ fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
     }
 
 filtrarSerie(valor){
-      let nuevoArray = this.state.series.filter(serie => serie.title.toLowerCase().includes(valor.toLowerCase()) );
+      let nuevoArray = this.state.series.filter(serie => serie.name.toLowerCase().includes(valor.toLowerCase()) );
       this.setState({
         serieFiltro: nuevoArray
       })
@@ -51,7 +51,7 @@ filtrarSerie(valor){
             <Filtrar filtrar={(id) => this.filtrarSerie(id)} />
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las Series Populares</h2>
-             <SeriesPadre series={this.state.series}/>
+             <SeriesPadre series={this.state.serieFiltro}/>
              </section>
 
               <Footer />

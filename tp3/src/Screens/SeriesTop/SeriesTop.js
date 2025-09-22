@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
 import TodasSeriesTopPadre from "../../Component/TodasSeriesTopPadre/TodasSeriesTopPadre";
+import Filtrar from "../../Component/Filtrar/Filtrar";
 
 class Series extends Component{
     constructor(){
         super()
         this.state={
-            seriesTop: []
+            seriesTop: [],
+            serieFiltro: [],
+            valor: "",
         }
     }
     componentDidMount(){
@@ -26,20 +29,29 @@ fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options
     console.log(res)
     
     this.setState({
-        seriesTop: res.results
+        seriesTop: res.results,
+        serieFiltro: res.results
     })
 })
   .catch(err => console.error(err));
     }
+
+filtrarSerie(valor){
+      let nuevoArray = this.state.seriesTop.filter(serie => serie.name.toLowerCase().includes(valor.toLowerCase()) );
+      this.setState({
+        serieFiltro: nuevoArray
+      })
+      }
 
     render(){
         return(
              <div className="container">
                 <h1>UdeSA Movies</h1>
        <Header/>
+                   <Filtrar filtrar={(id) => this.filtrarSerie(id)} />
              <section class="row cards all-movies" id="movies">
              <h2 class="alert alert-primary">Todas las Series Top Rated</h2>
-             <TodasSeriesTopPadre seriesTop={this.state.seriesTop}/>
+             <TodasSeriesTopPadre seriesTop={this.state.serieFiltro}/>
              </section>
 
               <Footer />

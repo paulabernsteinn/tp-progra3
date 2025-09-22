@@ -13,9 +13,7 @@ class TodasTopPadre extends Component{
  
  render(){
     return(
-    <div>
-          <Filtrar/>
-        
+    <div>        
         <section class="row cards" id="movies">
      
              {this.props.peliculasTop === "" ? <h3>Cargando...</h3> : this.props.peliculasTop.map(peli => {
