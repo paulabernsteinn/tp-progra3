@@ -20,7 +20,7 @@ class DetalleSerie extends Component{
 };
   const id = this.props.match.params.id
 
-fetch(`https://api.themoviedb.org/3/tv/${id}language=en-US`, options)
+fetch(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, options)
   .then(res => res.json())
   .then(res => {
     console.log(res)
@@ -46,6 +46,6 @@ fetch(`https://api.themoviedb.org/3/tv/${id}language=en-US`, options)
         )
     }
 }
-// CAMBIAR URL E IMPORTAR DETALLESERIEHIJO
+
 
 export default DetalleSerie

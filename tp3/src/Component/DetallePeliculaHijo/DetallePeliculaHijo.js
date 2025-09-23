@@ -69,7 +69,11 @@ class DetallePeliculaHijo extends Component{
                 <p class="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.props.data.release_date}</p>
                 <p class="mt-0 mb-0 length"><strong>Duración:</strong>{this.props.data.runtime}</p>
                 <p class="description"><strong>Sinopsis:</strong> {this.props.data.overview}</p>
-                <p class="mt-0" id="votes"><strong>Genero:</strong> {this.props.data.genre}</p>
+                <p className="mt-0">
+                <strong>Genero:</strong>
+                {this.props.data.genres &&
+                this.props.data.genres.map(genero => genero.name)}
+                </p>
                 {this.state.favoritos ? <a href="" class="btn alert-primary" onClick={() => this.quitarDeFavoritos()}>❌</a> : <a href="" class="btn alert-primary" onClick={() => this.agregarFavoritos()} >♥️</a>}
             </section>
         </section>

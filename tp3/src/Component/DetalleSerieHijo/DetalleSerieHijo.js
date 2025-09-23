@@ -13,10 +13,14 @@ class DetalleSerieHijo extends Component{
             <section class="col-md-6 info">
                 <h3>Descripción</h3>
                 <p class="mt-0" id="votes"><strong>Calificación:</strong> {this.props.SerieDetalle.vote_average}</p>
-                <p class="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.props.SerieDetalle.release_date}</p>
-                <p class="mt-0 mb-0 length"><strong>Duración:</strong>{this.props.SerieDetalle.runtime}</p>
+                <p class="mt-0 mb-0" id="first_air_date"><strong>Fecha de estreno:</strong>{this.props.SerieDetalle.first_air_date}</p>
+                <p class="mt-0 mb-0 length" ><strong>Duración:</strong>{this.props.SerieDetalle.runtime}</p>
                 <p class="description"><strong>Sinopsis:</strong> {this.props.SerieDetalle.overview}</p>
-                <p class="mt-0" id="votes"><strong>Genero:</strong> {this.props.SerieDetalle.genre}</p>
+                <p className="mt-0">
+                <strong>Genero:</strong>
+                {this.props.SerieDetalle.genres &&
+                this.props.SerieDetalle.genres.map(genero => genero.name)}
+                </p>
                 <a href="" class="btn alert-primary">♥️</a>
             </section>
         </section>
