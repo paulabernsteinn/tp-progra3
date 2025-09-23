@@ -6,7 +6,6 @@ class PeliculasHijo extends Component{
         super(props)
          this.state={
            // valor: props.value,
-           valor: '',
             verMas: false,
             textoBoton: "Ver descripción",
             boton: 'Cargar mas',
@@ -14,7 +13,6 @@ class PeliculasHijo extends Component{
             loading: true,
             data: [],
             favoritos: false,
-            nextPage: "",
         }
          }
 

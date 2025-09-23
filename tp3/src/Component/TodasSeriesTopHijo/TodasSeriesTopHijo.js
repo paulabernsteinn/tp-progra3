@@ -84,7 +84,9 @@ class TodasSeriesTopHijo extends Component{
                     {this.state.favoritos ? <a href="" class="btn alert-primary" onClick={() => this.quitarDeFavoritos()}>❌</a> : <a href="" class="btn alert-primary" onClick={() => this.agregarFavoritos()} >♥️</a>}
                 </div>
                 <Link className=""to ={`/series/id/${this.props.data.id}`}>Detalle</Link>
+                
             </article>
+            
         )
     }
 }
